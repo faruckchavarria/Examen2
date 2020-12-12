@@ -6,10 +6,11 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 
-class MainActivity : AppCompatActivity() {
+class AuthMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_auth)
         // Obtain the FirebaseAnalytics instance.
         //val analytics : FirebaseAnalytics = Firebase.analytics
         //val bundle = bundle()
