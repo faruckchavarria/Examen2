@@ -6,6 +6,7 @@ plugins {
 =======
 >>>>>>> a27190825b4eb327d2ad1a87c49bf1572d3e45c8
     id 'com.google.gms.google-services'
+    id 'kotlin-android'
 }
 
 android {

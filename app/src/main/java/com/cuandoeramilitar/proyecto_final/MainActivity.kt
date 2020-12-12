@@ -10,16 +10,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        // Obtain the FirebaseAnalytics instance.
-        //val analytics : FirebaseAnalytics = Firebase.analytics
-        //val bundle = bundle()
-        //bundle.putString("message","Integracion a Firebase completa)
-        //analytics.logEvent("InitScreen",bundle)
 
-        //val analytics : FirebaseAnalytics = FirebaseAnalytics.getInstance(this)
-        //val bundle = bundle()
-        //val bundle = bundle()
-        //bundle.putString("message","Integracion a Firebase completa")
-        //analytics.logEvent("InitScreen",bundle)
     }
 }
