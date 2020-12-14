@@ -117,4 +117,15 @@ class ProductoCRUD(context: Context) {
         db.close()
 
     }
+
+    fun deleteProducto(item:Producto)
+
+    {
+        val db:SQLiteDatabase = helper?.writableDatabase!!
+        db.delete(ProductoContract.Companion.Entrada.NOMBRE_TABLA,
+        "id =?",
+        arrayOf(item.id))
+
+        db.close()
+    }
 }
