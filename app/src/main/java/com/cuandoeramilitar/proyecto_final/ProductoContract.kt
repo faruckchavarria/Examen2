@@ -6,6 +6,7 @@ class ProductoContract {
 
     companion object
     {
+        val VERSION = 1
         class Entrada: BaseColumns
         {
             companion object
