@@ -97,4 +97,24 @@ class ProductoCRUD(context: Context) {
 
         return item!!
     }
+    fun updateProducto(item:Producto)
+    {
+        val db:SQLiteDatabase = helper?.writableDatabase!!
+
+        val values = ContentValues()
+        values.put(ProductoContract.Companion.Entrada.COLUMNA_ID, item.id)
+        values.put(ProductoContract.Companion.Entrada.COLUMNA_PRODUCTO, item.Producto)
+        values.put(ProductoContract.Companion.Entrada.COLUMNA_MARCA, item.Marca)
+        values.put(ProductoContract.Companion.Entrada.COLUMNA_PRECIO_COMPRA, item.Precio_compra)
+        values.put(ProductoContract.Companion.Entrada.COLUMNA_PRECIO_VENTA, item.Precio_venta)
+
+        db.update(
+            ProductoContract.Companion.Entrada.NOMBRE_TABLA,
+            values,
+            "id =?",
+            arrayOf(item.id))
+
+        db.close()
+
+    }
 }
