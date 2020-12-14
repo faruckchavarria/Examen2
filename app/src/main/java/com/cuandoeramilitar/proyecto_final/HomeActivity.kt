@@ -10,8 +10,13 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
     }
-    fun  LanzarRegistrar(view: View) {
+    fun  LanzarNuevo(view: View) {
         val intent = Intent(this,Principal ::class.java)
+        startActivity(intent)
+    }
+
+    fun Lista(view: View){
+        val intent = Intent(this,Clima::class.java)
         startActivity(intent)
     }
 }

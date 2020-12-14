@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
 
         crud = ProductoCRUD(this)
 
+        Producto = crud?.getProducto()
+
         adaptador = AdaptadorCustom( Producto !!, object :ClickListener{
             override fun onClick(vista: View, index: Int){
                 //click
