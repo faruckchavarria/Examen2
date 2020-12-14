@@ -64,4 +64,37 @@ class ProductoCRUD(context: Context) {
         db.close()
         return items
     }
+    fun getProductos(id:String):Producto
+    {
+        var item:Producto? = null
+        val db:SQLiteDatabase = helper?.readableDatabase!!
+
+        var columnas = arrayOf(ProductoContract.Companion.Entrada.COLUMNA_ID,
+                                ProductoContract.Companion.Entrada.COLUMNA_PRODUCTO,
+                                ProductoContract.Companion.Entrada.COLUMNA_MARCA,
+                                ProductoContract.Companion.Entrada.COLUMNA_PRECIO_COMPRA,
+                                ProductoContract.Companion.Entrada.COLUMNA_PRECIO_VENTA)
+
+        val c:Cursor = db.query(
+            ProductoContract.Companion.Entrada.NOMBRE_TABLA,
+            columnas,
+            "id = ?",
+            arrayOf(id),
+            null,
+            null,
+            null
+
+        )
+        while (c.moveToNext()){
+            item = Producto(c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_ID)),
+            c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_PRODUCTO)),
+            c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_MARCA)),
+            c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_PRECIO_COMPRA)),
+            c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_PRECIO_VENTA)))
+
+        }
+        c.close()
+
+        return item!!
+    }
 }
