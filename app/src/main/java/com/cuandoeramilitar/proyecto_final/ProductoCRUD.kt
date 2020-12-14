@@ -2,6 +2,7 @@ package com.cuandoeramilitar.proyecto_final
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
@@ -30,5 +31,37 @@ class ProductoCRUD(context: Context) {
 
         db.close()
 
+    }
+    fun getProducto(): ArrayList<Producto>
+    {
+        val items:ArrayList<Producto> = ArrayList()
+        //Abrir BD en modo lectura
+        val db: SQLiteDatabase = helper?.readableDatabase!!
+        //especificar columnas que quiero consultar
+        val columnas = arrayOf(ProductoContract.Companion.Entrada.COLUMNA_ID, ProductoContract.Companion.Entrada.COLUMNA_PRODUCTO,ProductoContract.Companion.Entrada.COLUMNA_MARCA,ProductoContract.Companion.Entrada.COLUMNA_PRECIO_COMPRA,ProductoContract.Companion.Entrada.COLUMNA_PRECIO_VENTA )
+
+        //Crear un cursor para recorrer la tabla
+        val c:Cursor =db.query(
+            ProductoContract.Companion.Entrada.NOMBRE_TABLA,
+            columnas,
+            null,
+            null,
+            null,
+            null,
+            null
+        )
+        //hacer recorrido de cursor de la tabla
+        while (c.moveToNext()){
+            items.add(Producto(
+                c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_ID)),
+                c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_PRODUCTO)),
+                c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_MARCA)),
+                c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_PRECIO_COMPRA)),
+                c.getString(c.getColumnIndexOrThrow(ProductoContract.Companion.Entrada.COLUMNA_PRECIO_VENTA))
+            ))
+            }
+// CERRAR DB
+        db.close()
+        return items
     }
 }
