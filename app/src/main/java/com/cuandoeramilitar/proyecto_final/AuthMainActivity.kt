@@ -8,10 +8,14 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import kotlin.properties.Delegates
 
 class AuthMainActivity  : AppCompatActivity() {
+
+
+
 
     private val TAG = "AuthMainActivity"
     //global variables
