@@ -1,11 +1,11 @@
 package com.cuandoeramilitar.proyecto_final
 
 class Producto(id:String, producto:String, Marca:String, Precio_compra: String, Precio_venta: String ) {
-    private var id:String? = null
-    private var Producto:String? = null
-    private var Marca:String? = null
-    private var Precio_compra:String? = null
-    private var Precio_venta:String? = null
+     var id:String? = null
+     var Producto:String? = null
+     var Marca:String? = null
+     var Precio_compra:String? = null
+     var Precio_venta:String? = null
 
     init {
 
